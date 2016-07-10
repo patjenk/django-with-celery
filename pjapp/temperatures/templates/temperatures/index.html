@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <title>PJ App</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // Handler for .ready() called.
+            });
+        </script>
+    </head>
+    <body>
+        <div style="padding-top: 20px; padding-bottom: 20px; text-align: center;">
+            <button style="font-size: 18px;" type="button" name="baltimore_temperature">Lookup Baltimore Temperature</button>
+        </div>
+       
+        <table>
+            <tr>
+                <th>Date and Time of Request</th>
+                <th>Location</th>
+                <th>Temperature (F)</th>
+                <th>Date Fulfilled</th>
+                <th>Type of Request</th>
+                <th>Time for Fulfillment</th>
+            </tr>
+            {% for temperature_lookup in temperature_lookups %}
+            <tr>
+                <td>{{ temperature_lookup.request_datetime }}</td>
+                <td>{{ temperature_lookup.location }}</td>
+                <td>{{ temperature_lookup.temperature_f }}</td>
+                <td>{{ temperature_lookup.response_datetime }}</td>
+                <td>{{ temperature_lookup.type_of_request }}</td>
+                <td>TODO</td>
+            </tr>
+
+            {% endfor %}
+        </table> 
+
+    </body>
+</html>
