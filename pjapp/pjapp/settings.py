@@ -26,8 +26,7 @@ SECRET_KEY = '4+j=bq0j-$7izto4y=q6wfgmw5eeh$vk0%gfjxg@uu*5wnd88e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("PJAPP_DEBUG", True)
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = env("PJAPP_ALLOWED_HOSTS", [])
 
 # Application definition
 
