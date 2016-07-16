@@ -26,7 +26,7 @@
         <div style="padding-top: 20px; padding-bottom: 20px; text-align: center;">
             <button id="baltimore-temperature" style="font-size: 18px;" type="button" name="baltimore_temperature">Lookup Baltimore Temperature</button>
         </div>
-       
+
         <table>
             <tr>
                 <th>Date and Time of Request</th>
@@ -34,7 +34,7 @@
                 <th>Temperature (F)</th>
                 <th>Date Fulfilled</th>
                 <th>Type of Request</th>
-                <th>Time for Fulfillment</th>
+                <th>Fulfillment Time in Seconds</th>
             </tr>
             {% for temperature_lookup in temperature_lookups %}
             <tr>
@@ -43,11 +43,11 @@
                 <td>{{ temperature_lookup.temperature_f }}</td>
                 <td>{{ temperature_lookup.response_datetime }}</td>
                 <td>{{ temperature_lookup.type_of_request }}</td>
-                <td>TODO</td>
+                <td>{{ temperature_lookup.fulfillment_seconds }}</td>
             </tr>
 
             {% endfor %}
-        </table> 
+        </table>
 
     </body>
 </html>

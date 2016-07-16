@@ -9,5 +9,5 @@ python manage.py runserver
 
 ## Development Celery
 ``` terminal
-celery -A pjapp worker -l debug --concurrency 1
+celery -A pjapp worker -l debug --concurrency 1 -B
 ```
