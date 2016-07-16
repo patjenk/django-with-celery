@@ -121,3 +121,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '../static/'
+
+# Celery stuff
+from kombu import Exchange, Queue
+BROKER_URL = "memory://"
+CELERY_ALWAYS_EAGER = True
+CELERY_ENABLE_UTC = False
+CELERY_DEFAULT_QUEUE = "pjapp"
+CELERY_QUEUES = (
+    Queue("pjapp", Exchange("pjapp"), routing_key="pjapp"),
+)

@@ -6,13 +6,25 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                // Handler for .ready() called.
-            });
+
+                $("#baltimore-temperature").click(function(e) {
+
+                    $.ajax( {
+                        type: "GET",
+                        url: "/temperatures/baltimore.js",
+                        success: function(result) {
+                            location.reload()
+                        },
+                    }); // end of ajax
+
+                }); // end of baltimore-temperature button click
+
+            }); // end of document ready
         </script>
     </head>
     <body>
         <div style="padding-top: 20px; padding-bottom: 20px; text-align: center;">
-            <button style="font-size: 18px;" type="button" name="baltimore_temperature">Lookup Baltimore Temperature</button>
+            <button id="baltimore-temperature" style="font-size: 18px;" type="button" name="baltimore_temperature">Lookup Baltimore Temperature</button>
         </div>
        
         <table>
