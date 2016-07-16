@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from getenv import env
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4+j=bq0j-$7izto4y=q6wfgmw5eeh$vk0%gfjxg@uu*5wnd88e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("PJAPP_DEBUG", True)
 
 ALLOWED_HOSTS = []
 
@@ -124,8 +125,8 @@ STATIC_ROOT = '../static/'
 
 # Celery stuff
 from kombu import Exchange, Queue
-BROKER_URL = "memory://"
-CELERY_ALWAYS_EAGER = True
+BROKER_URL = env('CELERY_BROKER_URL', 'memory://')
+CELERY_ALWAYS_EAGER = env('CELERY_ALWAYS_EAGER', True)
 CELERY_ENABLE_UTC = False
 CELERY_DEFAULT_QUEUE = "pjapp"
 CELERY_QUEUES = (
